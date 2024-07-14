@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
+import { Chart as ChartJS, CategoryScale, registerables } from "chart.js";
 
+ChartJS.register(...registerables, CategoryScale);
 const LineChart = () => {
-  const [chartData, setChartData] = useState({});
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: 'Votes',
+        data: [],
+        backgroundColor: 'rgba(75, 192, 192, 0.6)'
+      }
+    ]
+  });
 
   useEffect(() => {
     const fetchData = async () => {

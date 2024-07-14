@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, registerables } from "chart.js";
 import axios from 'axios';
 
+ChartJS.register(...registerables, CategoryScale);
 const BarChart = ({ year }) => {
   const [chartData, setChartData] = useState({
     labels: [],

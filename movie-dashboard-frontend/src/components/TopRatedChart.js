@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, registerables } from "chart.js";
 import axios from 'axios';
 
+ChartJS.register(...registerables, CategoryScale);
 const TopRatedChart = ({ year }) => {
-  const [chartData, setChartData] = useState({});
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: 'Votes',
+        data: [],
+        backgroundColor: 'rgba(75, 192, 192, 0.6)'
+      }
+    ]
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +26,7 @@ const TopRatedChart = ({ year }) => {
           datasets: [
             {
               label: 'Rating',
-              data: data.map(movie => movie.rating),
+              data: data.map((movie) => movie.rating),
               backgroundColor: 'rgba(255, 159, 64, 0.6)'
             }
           ]

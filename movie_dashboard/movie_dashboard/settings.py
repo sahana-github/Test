@@ -53,9 +53,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Add this line above CommonMiddleware
     'django.middleware.common.CommonMiddleware',
 ]
+
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # React development server
-    # Add more origins as needed
+    'http://localhost:3000',  
+    'http://localhost:3001',  
 ]
 ROOT_URLCONF = "movie_dashboard.urls"
 
