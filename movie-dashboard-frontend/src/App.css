@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+input[type="number"] {
+  padding: 5px;
+  margin: 10px;
+  font-size: 1em;
+}
